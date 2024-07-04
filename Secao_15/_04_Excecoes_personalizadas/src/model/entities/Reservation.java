@@ -35,9 +35,18 @@ public class Reservation {
     }
 
     // Apagar sets pois o seguinte método é responsável pela atualização do checkIn e do checkOut
-    public void updateDates(LocalDate checkIn, LocalDate checkOut) {
+    public String updateDates(LocalDate checkIn, LocalDate checkOut) {
+    	
+    	LocalDate now = LocalDate.now();
+        if (checkIn.isBefore(now) || checkOut.isBefore(now)) {
+			return "Reservation dates for update must be future dates";
+		}
+		if (!checkOut.isAfter(checkIn)) {
+			return "Check-out date must be after check-in date";
+		}
         this.checkIn = checkIn;
         this.checkOut = checkOut;
+        return null;
     }
 
     @Override
