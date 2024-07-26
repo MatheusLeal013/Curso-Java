@@ -52,7 +52,7 @@ public class Account {
 		this.balance += amount;
 	}
 	
-	public void withdraw(Double amount) throws DomainException {
+	public void withdraw(Double amount) throws DomainException{
 		if(amount > withdrawLimit) {
 			throw new DomainException("The amount exceeds withdraw limit");
 		}
