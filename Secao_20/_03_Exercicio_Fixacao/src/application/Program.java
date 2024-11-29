@@ -41,7 +41,7 @@ public class Program {
 			emails.forEach(System.out::println);
 			
 			double sum = list.stream().filter(e -> e.getName().charAt(0) == 'M').map(e -> e.getSalary()).reduce(0.0, (x, y) -> x + y);
-			System.out.print("Sum of salary of people whose name starts with 'M': " + sum);
+			System.out.printf("Sum of salary of people whose name starts with 'M': %.2f", sum);
 			
 		}
 		catch (IOException e) {
