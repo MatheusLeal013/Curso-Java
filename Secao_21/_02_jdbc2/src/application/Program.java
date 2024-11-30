@@ -15,6 +15,7 @@ public class Program {
 		Statement st = null;
 		ResultSet rs = null;
 		
+		// Todos esses objetos vão acessar recursos externos, que podem gerar exceções
 		try {
 			conn = DB.getConnection();
 			
@@ -23,12 +24,15 @@ public class Program {
 			rs = st.executeQuery("SELECT * FROM department");
 			
 			while (rs.next()) {
+				// Pega inteiro no Id
 				System.out.println(rs.getInt("Id") + ", " + rs.getString("Name"));
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+		// Como são recursos externos que não controlados pela JVM, é bom fecharmos eles manualmente, 
+		// para evitar vazamento de memória no programa
 		finally {
 			DB.closeStatement(st);
 			DB.closeResultSet(rs);
