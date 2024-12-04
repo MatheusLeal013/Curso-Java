@@ -39,6 +39,8 @@ public class Program {
 			//		"insert into department (Name) values ('D1'),('D2')", 
 			//		Statement.RETURN_GENERATED_KEYS);			
 			
+			// operação para alterar os dados
+			// retorna um valor inteiro indicando quantas linhas foram alteradas
 			int rowsAffected = st.executeUpdate();
 			
 			// Retorna Id adicionado
